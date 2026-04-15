@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>5th &amp; Lake, LLC</title>
+  <link href="https://fonts.googleapis.com/css2?family=Georgia&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --teal:        #1a7a9a;
+      --teal-dark:   #155f78;
+      --teal-light:  #b8dde9;
+      --white:       #ffffff;
+      --navy:        #1a2330;
+      --gray-bg:     #f4f5f6;
+      --text:        #1a2330;
+      --text-muted:  #4a5568;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      background: var(--white);
+      border-bottom: 1px solid #e2e8f0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 48px;
+      width: 48px;
+      object-fit: contain;
+    }
+
+    .nav-wordmark {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.15rem;
+      font-weight: normal;
+      color: var(--teal-dark);
+      letter-spacing: 0.02em;
+    }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    .hero {
+      background: var(--teal);
+      text-align: center;
+      padding: 96px 24px 88px;
+    }
+
+    .hero-logo {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    .hero h1 {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2.4rem;
+      font-weight: normal;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
+    }
+
+    .hero .tagline {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.05rem;
+      color: var(--teal-light);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ─── SECTIONS ────────────────────────────────────────── */
+    section {
+      padding: 80px 24px;
+    }
+
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 12px;
+    }
+
+    .section-heading {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.9rem;
+      font-weight: normal;
+      color: var(--navy);
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    #about {
+      background: var(--white);
+    }
+
+    .about-body {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 640px;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    .about-meta {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .meta-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+    }
+
+    .meta-value {
+      font-size: 0.95rem;
+      color: var(--navy);
+    }
+
+    /* ─── VENTURES ────────────────────────────────────────── */
+    #ventures {
+      background: var(--gray-bg);
+    }
+
+    .ventures-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-top: 40px;
+    }
+
+    .venture-card {
+      background: var(--white);
+      border: 1px solid #dde3ea;
+      border-top: 3px solid var(--teal);
+      padding: 36px 32px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .venture-name {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 1.25rem;
+      font-weight: normal;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .venture-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 28px;
+    }
+
+    .venture-link {
+      display: inline-block;
+      padding: 10px 22px;
+      background: transparent;
+      border: 1.5px solid var(--teal);
+      color: var(--teal);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background 0.18s, color 0.18s;
+      align-self: flex-start;
+    }
+
+    .venture-link:hover {
+      background: var(--teal);
+      color: var(--white);
+    }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    #contact {
+      background: var(--white);
+    }
+
+    .contact-body {
+      font-size: 1.0rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.97rem;
+      color: var(--navy);
+    }
+
+    .contact-list li span.contact-type {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      min-width: 72px;
+    }
+
+    .contact-list a {
+      color: var(--teal-dark);
+      text-decoration: none;
+    }
+
+    .contact-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: #8fa3b8;
+      text-align: center;
+      padding: 36px 24px;
+    }
+
+    footer p {
+      font-size: 0.82rem;
+      line-height: 1.8;
+      letter-spacing: 0.02em;
+    }
+
+    footer p + p {
+      margin-top: 6px;
+      font-size: 0.76rem;
+      color: #5c7185;
+    }
+
+    /* ─── DIVIDER ─────────────────────────────────────────── */
+    .rule {
+      width: 40px;
+      height: 2px;
+      background: var(--teal);
+      margin-bottom: 20px;
+    }
+
+    /* ─── RESPONSIVE ──────────────────────────────────────── */
+    @media (max-width: 680px) {
+      nav {
+        padding: 14px 20px;
+      }
+
+      .nav-wordmark {
+        font-size: 0.95rem;
+      }
+
+      .hero {
+        padding: 64px 20px 56px;
+      }
+
+      .hero-logo {
+        width: 120px;
+        height: 120px;
+      }
+
+      .hero h1 {
+        font-size: 1.7rem;
+      }
+
+      section {
+        padding: 56px 20px;
+      }
+
+      .ventures-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-meta {
+        flex-direction: column;
+        gap: 20px;
+      }
+    }
+
+    /* ─── PRINT ───────────────────────────────────────────── */
+    @media print {
+      nav {
+        position: static;
+        border-bottom: 1px solid #ccc;
+      }
+
+      .hero {
+        background: #1a7a9a !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .venture-link {
+        border-color: #1a7a9a;
+      }
+
+      footer {
+        background: #1a2330 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <img src="./logo.jpg" alt="5th &amp; Lake, LLC logo" />
+    </a>
+    <span class="nav-wordmark">5th &amp; Lake, LLC</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <img class="hero-logo" src="./logo.jpg" alt="5th &amp; Lake, LLC" />
+    <h1>5th &amp; Lake, LLC</h1>
+    <p class="tagline">Clarity. Structure. Forward Motion.</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">Who We Are</p>
+      <h2 class="section-heading">About</h2>
+      <div class="rule"></div>
+      <p class="about-body">
+        5th &amp; Lake LLC is a Michigan-based holding company and advisory firm founded by Jeff Kline.
+        We build, incubate, and operate ventures at the intersection of systems, operations, and emerging technology.
+      </p>
+      <div class="about-meta">
+        <div class="meta-item">
+          <span class="meta-label">Founded</span>
+          <span class="meta-value">2023</span>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">Location</span>
+          <span class="meta-value">Owosso, Michigan</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VENTURES -->
+  <section id="ventures">
+    <div class="container">
+      <p class="section-label">Portfolio</p>
+      <h2 class="section-heading">Our Ventures</h2>
+      <div class="rule"></div>
+
+      <div class="ventures-grid">
+
+        <div class="venture-card">
+          <h3 class="venture-name">Apex Command Systems&#8482;</h3>
+          <p class="venture-desc">
+            AI implementation advisory for small and mid-sized businesses.
+            We install operational AI systems that actually run.
+          </p>
+          <a class="venture-link" href="https://apexcommandsystems.com" target="_blank" rel="noopener">
+            Visit Site &rarr;
+          </a>
+        </div>
+
+        <div class="venture-card">
+          <h3 class="venture-name">Solomon Apex&#8482;</h3>
+          <p class="venture-desc">
+            Tools, frameworks, and methodology for builders and entrepreneurs.
+          </p>
+          <a class="venture-link" href="https://solomonapex.com" target="_blank" rel="noopener">
+            Visit Site &rarr;
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Connect</p>
+      <h2 class="section-heading">Get in Touch</h2>
+      <div class="rule"></div>
+      <p class="contact-body">
+        Questions, inquiries, or partnership conversations welcome.
+      </p>
+      <ul class="contact-list">
+        <li>
+          <span class="contact-type">Email</span>
+          <a href="mailto:jeff@apexcommandsystems.com">jeff@apexcommandsystems.com</a>
+        </li>
+        <li>
+          <span class="contact-type">Location</span>
+          <span>Owosso, Michigan</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 5th &amp; Lake, LLC &middot; All rights reserved</p>
+    <p>Apex Command Systems&#8482; and Solomon Apex&#8482; are ventures of 5th &amp; Lake, LLC</p>
+  </footer>
+
+</body>
+</html>
